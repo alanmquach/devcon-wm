@@ -5,6 +5,7 @@ MAINTAINER Alan Quach <integsrtite@gmail.com>
 # UI
 RUN apt-get update && apt-get install -y tightvncserver \
     i3 \
+    feh \
     terminator
 # RUN setcap -r `which i3status`
 
@@ -16,7 +17,6 @@ RUN apt-get update && apt-get install -y tightvncserver \
 # RUN apt-get update && apt-get install -y dmenu
 # RUN apt-get update && apt-get install -y dunst
 # RUN apt-get update && apt-get install -y connman-ui
-# RUN apt-get update && apt-get install -y feh
 # RUN apt-get update && apt-get install -y rox-filer
 
 CMD ["/usr/sbin/sshd", "-D"]
