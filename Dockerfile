@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y tightvncserver \
     feh \
     terminator
 ADD keyring.deb /root/keyring.deb
-RUN apt install /root/keyring.deb && 
+RUN apt install /root/keyring.deb
 RUN echo "deb http://debian.sur5r.net/i3/ $(grep '^DISTRIB_CODENAME=' /etc/lsb-release | cut -f2 -d=) universe" >> /etc/apt/sources.list.d/sur5r-i3.list
 RUN apt update && apt install -y i3
 # RUN setcap -r `which i3status`
