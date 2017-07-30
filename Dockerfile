@@ -25,9 +25,12 @@ RUN curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > /et
     && echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list \
     && apt-get update && apt-get install -y code
     
-# RUN apt-get update && apt-get install -y dmenu
+# browser (326 MB)
+RUN curl -sSL https://dl.google.com/linux/linux_signing_key.pub | apt-key add - \
+    && echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list \
+    && apt-get update && apt-get install -y google-chrome-stable
+
 # RUN apt-get update && apt-get install -y dunst
-# RUN apt-get update && apt-get install -y connman-ui
 # RUN apt-get update && apt-get install -y rox-filer
 
 CMD ["/usr/sbin/sshd", "-D"]
