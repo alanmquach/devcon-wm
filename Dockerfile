@@ -29,6 +29,9 @@ RUN apt-get update && apt-get install -y \
     && ln -s /usr/local/sbin/xrdp{,-sesman} /usr/sbin \
     && cat /root/xrdp.ini > /etc/xrdp/xrdp.ini
 
+# rofi (11 MB)
+RUN apt-get update && apt-get install -y rofi
+
 # terminal (45 MB)
 RUN apt-get update && apt-get install -y terminator
 
