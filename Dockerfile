@@ -17,16 +17,16 @@ RUN curl -Lv https://dl.bintray.com/tigervnc/stable/tigervnc-1.7.0.x86_64.tar.gz
 ADD xrdp.ini /root/xrdp.ini
 RUN apt-get update && apt-get install -y \
     git autoconf libtool pkg-config gcc g++ make libssl-dev libpam0g-dev libjpeg-dev libx11-dev libxfixes-dev libxrandr-dev  flex bison libxml2-dev intltool xsltproc xutils-dev python-libxml2 g++ xutils libfuse-dev libmp3lame-dev nasm libpixman-1-dev xserver-xorg-dev \
-    && mkdir -p /tmp/git/neutrinolabs
-    && cd /tmp/git/neutrinolabs 
-    && wget https://github.com/neutrinolabs/xrdp/releases/download/v0.9.1/xrdp-0.9.1.tar.gz
-    && tar xvfz xrdp-0.9.1.tar.gz
-    && cd /tmp/git/neutrinolabs/xrdp-0.9.1
-    && ./bootstrap
-    && ./configure --enable-fuse --enable-mp3lame --enable-pixman --enable-painter
-    && make
-    && make install
-    && ln -s /usr/local/sbin/xrdp{,-sesman} /usr/sbin
+    && mkdir -p /tmp/git/neutrinolabs \
+    && cd /tmp/git/neutrinolabs \
+    && wget https://github.com/neutrinolabs/xrdp/releases/download/v0.9.1/xrdp-0.9.1.tar.gz \
+    && tar xvfz xrdp-0.9.1.tar.gz \
+    && cd /tmp/git/neutrinolabs/xrdp-0.9.1 \
+    && ./bootstrap \
+    && ./configure --enable-fuse --enable-mp3lame --enable-pixman --enable-painter \
+    && make \
+    && make install \
+    && ln -s /usr/local/sbin/xrdp{,-sesman} /usr/sbin \
     && cat /root/xrdp.ini > /etc/xrdp/xrdp.ini
 
 # terminal (45 MB)
