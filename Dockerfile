@@ -26,8 +26,7 @@ RUN apt-get update && apt-get install -y \
     && ./configure --enable-fuse --enable-mp3lame --enable-pixman --enable-painter \
     && make \
     && make install \
-    && ln -s /usr/local/sbin/xrdp{,-sesman} /usr/sbin \
-    && cat /root/xrdp.ini > /etc/xrdp/xrdp.ini
+    && ln -s /usr/local/sbin/xrdp{,-sesman} /usr/sbin
 
 # rofi (11 MB)
 RUN apt-get update && apt-get install -y rofi
