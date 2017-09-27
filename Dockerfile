@@ -19,9 +19,9 @@ RUN apt-get update && apt-get install -y \
     git autoconf libtool pkg-config gcc g++ make libssl-dev libpam0g-dev libjpeg-dev libx11-dev libxfixes-dev libxrandr-dev  flex bison libxml2-dev intltool xsltproc xutils-dev python-libxml2 g++ xutils libfuse-dev libmp3lame-dev nasm libpixman-1-dev xserver-xorg-dev \
     && mkdir -p /tmp/git/neutrinolabs \
     && cd /tmp/git/neutrinolabs \
-    && wget https://github.com/neutrinolabs/xrdp/releases/download/v0.9.1/xrdp-0.9.1.tar.gz \
-    && tar xvfz xrdp-0.9.1.tar.gz \
-    && cd /tmp/git/neutrinolabs/xrdp-0.9.1 \
+    && wget https://github.com/neutrinolabs/xrdp/releases/download/v0.9.3.1/xrdp-0.9.3.1.tar.gz \
+    && tar xvfz xrdp-*.tar.gz \
+    && cd /tmp/git/neutrinolabs/xrdp-* \
     && ./bootstrap \
     && ./configure --enable-fuse --enable-mp3lame --enable-pixman --enable-painter \
     && make \
