@@ -26,7 +26,7 @@ RUN apt-get update && apt-get install -y \
     && make \
     && make install \
     && ln -s /usr/local/sbin/xrdp{,-sesman} /usr/sbin
-ADD xstartup /root/xstartup
+ADD xstartup /tmp/xstartup
 ADD xrdp.ini /root/xrdp.ini
 
 # rofi (11 MB)
