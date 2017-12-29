@@ -14,7 +14,6 @@ RUN curl -Lv https://dl.bintray.com/tigervnc/stable/tigervnc-1.7.0.x86_64.tar.gz
     && tar -xvf /tmp/tigervnc-1.7.0.x86_64.tar.gz -C /tmp \
     && rsync -avz /tmp/tigervnc*/usr/ /usr \
     && apt-get update && apt-get install -y x11-xkb-utils
-ADD xrdp.ini /root/xrdp.ini
 RUN apt-get update && apt-get install -y \
     git autoconf libtool pkg-config gcc g++ make libssl-dev libpam0g-dev libjpeg-dev libx11-dev libxfixes-dev libxrandr-dev  flex bison libxml2-dev intltool xsltproc xutils-dev python-libxml2 g++ xutils libfuse-dev libmp3lame-dev nasm libpixman-1-dev xserver-xorg-dev \
     && mkdir -p /tmp/git/neutrinolabs \
@@ -27,6 +26,8 @@ RUN apt-get update && apt-get install -y \
     && make \
     && make install \
     && ln -s /usr/local/sbin/xrdp{,-sesman} /usr/sbin
+ADD xstartup /root/xstartup
+ADD xrdp.ini /root/xrdp.ini
 
 # rofi (11 MB)
 RUN apt-get update && apt-get install -y rofi
